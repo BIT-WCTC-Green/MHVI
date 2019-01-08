@@ -62,7 +62,7 @@
         //length of items
         //loop item keys
         $('#itemTable').append('<tr><td class="up"><span>' + snap.key + '</span></td><td>' + snap.val().Cost + '</td><td>' + snap.val().Quantity +
-            '<td><button type = "button" id="update">Update</button></td></tr>');
+            '<td><button type = "button" class="update">Update</button></td></tr>');
     });
 
 

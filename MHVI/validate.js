@@ -73,6 +73,11 @@ $(function() {
       updateDatabase(item,quantity);
     }
   });
+
+    $(".update").on('click', function(e){
+        alert('hello');
+    });
+
   $(document).ready(function() {
     $(".update").click(function() {
       alert("alsdkfj");
