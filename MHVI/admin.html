@@ -30,27 +30,7 @@
       window.location = "login.html";
     }
     </script> -->
-
-
   <div class="container" id = "dbEntryForm">
-
-<!-- andre told me to make a change -->
-
-    <table id="itemTable">
-      <thead>
-      <tr>
-        <th>Item</th>
-        <th>Cost</th>
-        <th>Quantity</th>
-        <th></th>
-      </tr></thead>
-<tbody>
-      <tr>
-        <td></td>
-      </tr>
-</tbody>
-    </table>
-
     <form name="mhvi">
       <h1>MHVI</h1>
       <h2>Database Entry Form</h2>
@@ -65,13 +45,23 @@
       <div class = "inline">
         <label for="cost">cost</label>
         <input type="number" name="cost" id="cost" placeholder="Cost">
+
       </div>
 
       <!-- <div id = "output" class = "f"></div> -->
 
       <button type="submit" id = "submit">Submit</button>
+      <button type="button" class = "update">update</button>
     </form>
   </div>
+  <form id = "adminTable">
+    <h1>balh</h1>
+    <table id = "table">
+
+    </table>
+  </form>
+  <br>
+  <br>
   <form id = "admin">
     <h1>Search</h1>
     <input type ="text" name ="searchName" id = "searchName" placeholder = "search here">
@@ -84,7 +74,7 @@
   <br>
 
   <form id = "adminSelectForm">
-    <h1>Update</h1>
+    <h1>DropDown</h1>
     <select id = "adminList" name = "adminList">
       <option value = "">Select Item</option>
     </select>

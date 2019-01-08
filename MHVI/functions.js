@@ -6,6 +6,9 @@ function dbWrite() {
     Quantity:(parseInt($('#quantity').val())),
     Cost:(parseInt($('#cost').val())),
     Date: firebase.database.ServerValue.TIMESTAMP
+
+
+  //php stuff here
   })
 }
 //item = name of item we want to change
