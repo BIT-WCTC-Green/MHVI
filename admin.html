@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>MHVI</title>
+    <!--jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <!-- Initialize Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+    <script src="firebase.js"></script>
+    <!--style -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--validation-->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></script>
+    <script src="validate.js"></script>
+    <script src="functions.js"></script>
+
+  </head>
+  <body>
+    <!-- <script>
+    let user = firebase.auth().currentUser;
+    // console.log("top " + user.email);
+    if (user == null){
+      window.location = "login.html";
+    }
+    else if (user.email != 'admin@mhvi.com'){
+      console.log(user.email);
+      firebase.auth().signOut();
+      window.location = "login.html";
+    }
+    </script> -->
+
+
+  <div class="container" id = "dbEntryForm">
+
+<!-- andre told me to make a change -->
+
+    <table id="itemTable">
+      <thead>
+      <tr>
+        <th>Item</th>
+        <th>Cost</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr></thead>
+<tbody>
+      <tr>
+        <td></td>
+      </tr>
+</tbody>
+    </table>
+
+    <form name="mhvi">
+      <h1>MHVI</h1>
+      <h2>Database Entry Form</h2>
+      <div class = "inline">
+        <label for="item">Item</label>
+        <input type="text" name="item" id="item" placeholder="Enter the name of the item">
+      </div>
+      <div class = "inline">
+        <label for="quanity">quantity</label>
+        <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity of item">
+      </div>
+      <div class = "inline">
+        <label for="cost">cost</label>
+        <input type="number" name="cost" id="cost" placeholder="Cost">
+      </div>
+
+      <!-- <div id = "output" class = "f"></div> -->
+
+      <button type="submit" id = "submit">Submit</button>
+    </form>
+  </div>
+  <form id = "admin">
+    <h1>Search</h1>
+    <input type ="text" name ="searchName" id = "searchName" placeholder = "search here">
+    <button type ="button" id ="search">Search</button>
+    <pre id = "object" class = "f"></pre>
+    <input type ="text" name ="txtUpdate" id = "txtUpdate" placeholder = "update here">
+    <button type = "button" id ="btnUpdate">Update</button>
+  </form>
+  <br>
+  <br>
+
+  <form id = "adminSelectForm">
+    <h1>Update</h1>
+    <select id = "adminList" name = "adminList">
+      <option value = "">Select Item</option>
+    </select>
+    <pre id = "output" class = "f"></pre>
+    <input type ="text" name ="adminSelectQuantity" id = "adminSelectQuantity" placeholder = "quantity">
+    <button type = "submit" id ="adminBtnUpdate">Update</button>
+    <!-- <button type = "button" id ="btnRemove">Remove Item</button> -->
+  </form>
+  <br>
+  <br>
+  <form id = "reportForm">
+    <input type="checkbox" name="report" value="annual">annual
+    <input type="checkbox" name="report" value="quarterly" checked="checked">quaterly<br>
+    <input type="submit" value="Submit">
+    <button type ="button" id = "printReport">print Report</button>
+  </form>
+
+  <button type = "button" id = "logoutBtn">Logout</button>
+
+</body>
+</html>
