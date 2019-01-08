@@ -53,6 +53,18 @@
       window.location = "login.html";
     });
 
+    const db = firebase.database().ref();
+
+    db.on('child_added', snap => {
+        //loop
+        //length of items
+        //loop item keys
+        $('#itemTable').append('<tr><td class="up"><span>' + snap.key + '</span></td><td>' + snap.val().Cost + '</td><td>' + snap.val().Quantity +
+            '<td><button type = "button" id="update">Update</button></td></tr>');
+    });
+
+
+
     //sync database changes in dropdown menu
     //grab reference to database
     const dbDropdown = firebase.database().ref();

@@ -45,7 +45,7 @@ $(function() {
         },
         driverTxtUpdate:{
           required: true,
-          range:[-100,100]
+         // range:[-100,100]
         }
       },
       messages: {
@@ -73,6 +73,15 @@ $(function() {
       updateDatabase(item,quantity);
     }
   });
+
+
+
+    $(".update").on('click', function(e){
+      alert('hello');
+    });
+
+
+
   $("#adminSelectForm").validate({
       rules: {
         adminList: {
@@ -80,7 +89,7 @@ $(function() {
         },
         adminSelectQuantity:{
           required: true,
-          range:[-100,100]
+        //  range:[-100,100]
         }
       },
       messages: {
