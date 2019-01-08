@@ -8,7 +8,7 @@
     messagingSenderId: "630227463036"
   };
   firebase.initializeApp(config);
-
+// blah
   $(document).ready(function(){
     //search database for item
     //ERRORS left shoes
