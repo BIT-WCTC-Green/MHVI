@@ -25,7 +25,12 @@ body {
   font-family: "Open Sans";
   font-size: 14px;
 }
-
+tr:nth-child(even) {
+  background:white;
+}
+tr:nth-child(odd) {
+  background:gray;
+}
 .not {
   color: red;
 }
@@ -37,5 +42,5 @@ body {
   font-size: 10px;
 }
 .hide{
-  visibility:hidden;
+  display:none;
 }
