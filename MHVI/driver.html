@@ -52,7 +52,7 @@
 <hr>
     <form>
 
-        <div class="form-group">
+        <div class="form-group ">
             <label for="itemList">Select Item</label>
             <select class="form-control" name="itemList" id="itemList">
                 <option>Select Item</option>
@@ -60,13 +60,20 @@
         </div>
 
 
-        <div class="form-group">
+        <div class="form-group ">
         <!--<pre id="driverOutput" class="f"></pre>-->
             <label for="driverTxtUpdate">Amount</label>
         <input type="text" class="form-control" name="driverTxtUpdate" id="driverTxtUpdate" placeholder="driver update here">
 
         </div>
 
+        <div class="btn-toolbar row" role="toolbar">
+        <button type="button" id="driverPickUp" class="btn btn-primary col-sm">Pick Up</button>
+        <button type="button" id="driverDropOff" class="btn btn-danger col-sm">Drop Off</button>
+        </div>
+
+        <!--If using submit button with radial buttons-->
+        <!--
         <div class="form-group">
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pickUp" value="pickUp">
@@ -80,6 +87,7 @@
 
         <button type="button" id="submit" class="btn btn-primary">Submit</button>
 
+        -->
     </form>
 
 
