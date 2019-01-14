@@ -1,79 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-
-    <title>MHVI - Login</title>
-
-
-    <!-- jquery -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> -->
-    <!-- removed because part of Bootstrap functionality -->
-
-    <!-- Bootstrap functionality -->
-    <!-- SOURCE: https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
-
-
-    <!-- Initialize Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
-    <script src="firebase.js"></script>
-    <!-- validation -->
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></script>
-    <script src="validate.js"></script>
-    <script src="functions.js"></script>
-
-
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico">
-    <!-- Bootstrap functionality -->
-    <!-- SOURCE: https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- site stylesheet -->
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-
+  <title>MHVI - Login</title>
+  <!--jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <!-- Initialize Firebase-->
+  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+  <script src="firebase.js"></script>
+  <!--style -->
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--validation-->
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></script>
+  <script src="validate.js"></script>
+  <script src="functions.js"></script>
+  <script src="btns.js"></script>
+  <!--Favicon-->
+  <link rel="icon" href="favicon.ico">
+  <!--Bootstrap functionality-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
 <body>
-<div class="container text-center">
-    <h1>MHVI Inventory Login</h1>
-
-
-    <!--Bootstrap form-->
-    <form>
-
+  <div class="jumbotron vertical-center">
+    <div class="container">
+      <h1 class="text-center">MHVI Inventory Login</h1>
+      <div class="mx-auto col-sm-6">
+        <form>
         <div class="form-group">
-            <label for="userName" class="col-form-label">Email Address</label>
-            <div class="col-md-6 mx-auto">
-                <input type="email" class="form-control" id="userName" aria-describedby="emailHelp"
-                       placeholder="Enter email">
-            </div>
+          <input type="email" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="Email">
         </div>
         <div class="form-group">
-            <label for="password" class="col-form-label">Password</label>
-            <div class="col-md-6 mx-auto">
-                <input type="password" class="form-control" id="password" placeholder="Enter password">
-            </div>
+          <input type="password" class="form-control" id="password" placeholder="Password">
         </div>
-
-
-        <button type="button" class="btn btn-primary" id="loginBtn">Login</button>
-    </form>
-
-
-</div>
-
+          <button type="button" class="btn btn-primary btn-block" id="loginBtn">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
