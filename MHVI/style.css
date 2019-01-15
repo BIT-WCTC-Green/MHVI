@@ -11,6 +11,12 @@
   margin-right: 25%;
   margin-left: 25%;
 }
+#driverPickUp, #driverDropOff {
+  height: 250px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
 h1{
   margin: 10px 0;
 }
@@ -46,6 +52,19 @@ body {
 }
 .hide{
   display:none;
+}
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Open Sans";
+  font-size: 30px;
 }
 @media (min-width: 768px) {
   .vertical-center {
