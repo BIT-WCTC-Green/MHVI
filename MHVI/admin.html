@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>MHVI - Admin</title>
     <!-- Bootstrap functionality -->
@@ -31,69 +31,92 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- site stylesheet -->
     <link rel="stylesheet" type="text/css" href="style.css"/>
-  </head>
-  <body>
-  <div class="p-4 bg-primary text-white" id = "putincenter">
-    <h1>MHVI</h1>
-    <h2>Database Entry Form</h2>
-    <form name="mhvi" class = "form-inline" id = "putincenter">
-      <div class = "form-group">
-        <label for="item">Item:</label>
-        <input type="text" class = "margin" name="item" id="item" placeholder="Name of item">
-      </div>
-      <div class = "form-group">
-        <label for="cost">Cost:</label>
-        <input type="number" class = "margin" name="cost" id="cost" placeholder="Cost of item">
-      </div>
-      <div class = "form-group">
-        <label for="quanity">Quantity:</label>
-        <input type="number" class = "margin" name="quantity" id="quantity" placeholder="Quantity of item">
-      </div>
-      <button type="submit" id = "submit" class = "btn btn-secondary">Submit</button>
-    </form>
-  </div>
-  <form id = "table">
-    <table id="itemTable" class = "table table-dark table-hover table-bordered">
-      <thead>
-      <tr>
-        <th>Item</th>
-        <th>Cost</th>
-        <th>Quantity</th>
-        <th></th>
-      </tr></thead>
-      <tbody id = "tableBody">
-      </tbody>
-    </table>
-  </form>
-  <form id = "admin">
-    <h1>Search</h1>
-    <input type ="text" name ="searchName" id = "searchName" placeholder = "search here">
-    <button type ="button" id ="search">Search</button>
-    <pre id = "object" class = "f"></pre>
-    <input type ="text" name ="txtUpdate" id = "txtUpdate" placeholder = "update here">
-    <button type = "button" id ="btnUpdate">Update</button>
-  </form>
-  <br>
-  <br>
-  <form id = "adminSelectForm">
-    <h1>DropDown</h1>
-    <select id = "adminList" name = "adminList">
-      <option value = "">Select Item</option>
-    </select>
-    <pre id = "output" class = "f"></pre>
-    <input type ="text" name ="adminSelectQuantity" id = "adminSelectQuantity" placeholder = "quantity">
-    <button type = "submit" id ="adminBtnUpdate">Update</button>
-    <!-- <button type = "button" id ="btnRemove">Remove Item</button> -->
-  </form>
-  <br>
-  <br>
-  <form id = "reportForm">
-    <input type="checkbox" name="report" value="annual">annual
-    <input type="checkbox" name="report" value="quarterly" checked="checked">quaterly<br>
-    <input type="submit" value="Submit">
-    <button type ="button" id = "printReport">print Report</button>
-  </form>
-  <button type = "button" class = "btn btn-primary btn-lg btn-block" id = "logoutBtn">Logout</button>
+</head>
+<body>
+<div class="container">
+    <div class="p-4 bg-primary text-white text-center">
+        <h1>MHVI</h1>
+        <h2>Database Entry Form</h2>
+    </div>
+    <hr>
 
+        <form name="mhvi" class="form-inline justify-content-center">
+            <fieldset>
+                <legend class="text-center">Add New Item</legend>
+
+                <!--<label for="item">Item:</label>-->
+                <input type="text" class="form-control" name="item" id="item" placeholder="Name of item">
+
+
+                <!--<label for="cost">Cost:</label>-->
+                <input type="number" class="form-control" name="cost" id="cost" placeholder="Cost of item">
+
+                <!--<label for="quantity">Quantity:</label>-->
+                <input type="number" class="form-control" name="quantity" id="quantity" placeholder="Quantity of item">
+
+            <button type="submit" id="submit" class="btn btn-secondary">Submit</button>
+            </fieldset>
+        </form>
+
+    <hr>
+    <form id="table">
+        <fieldset>
+            <legend class="text-center">Update Database</legend>
+        <table id="itemTable" class="table  table-hover table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Item</th>
+                <th>Cost</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+        </fieldset>
+    </form>
+
+    <hr>
+
+
+    <form id="admin" class="form-inline justify-content-center">
+        <fieldset>
+            <legend class="text-center">Search Database</legend>
+
+        <!--<input type="text" name="searchName" id="searchName" placeholder="search here">
+        <button type="button" id="search">Search</button>
+        <pre id="object" class="f"></pre>
+        <input type="text" name="txtUpdate" id="txtUpdate" placeholder="update here">
+        <button type="button" id="btnUpdate">Update</button>-->
+            <input type="text" class="form-control col-sm-4" name="searchName" id="searchName" placeholder="Search item...">
+            <input type="text" class="form-control col-sm-4" name="txtUpdate" id="txtUpdate" placeholder="Update Quantity">
+            <button type="submit" id="btnUpdate" class="btn btn-secondary">Update</button>
+        </fieldset>
+    </form>
+    <br>
+    <br>
+    <hr>
+    <form id="adminSelectForm">
+        <h1>DropDown</h1>
+        <select id="adminList" name="adminList">
+            <option value="">Select Item</option>
+        </select>
+        <pre id="output" class="f"></pre>
+        <input type="text" name="adminSelectQuantity" id="adminSelectQuantity" placeholder="quantity">
+        <button type="submit" id="adminBtnUpdate">Update</button>
+        <!-- <button type = "button" id ="btnRemove">Remove Item</button> -->
+    </form>
+    <br>
+    <br>
+    <hr>
+    <form id="reportForm">
+        <input type="radio" name="report" value="annual">annual
+        <input type="radio" name="report" value="quarterly" checked="checked">quaterly<br>
+        <input type="submit" value="Submit">
+        <button type="button" id="printReport">print Report</button>
+    </form>
+    <button type="button" class="btn btn-primary btn-lg btn-block" id="logoutBtn">Logout</button>
+</div>
 </body>
 </html>
