@@ -49,7 +49,7 @@ function searchDatabase(searchTerm,output){
   }
   function driverQuantityUpdate(){
       let item = $('#list').find(":selected").text();
-      let quantity = $('#driverTxtUpdate').val();
+      let quantity = $('#driverQuantityUpdate').val();
       updateDatabase(item,quantity);
   }
   function adminSelectForm(){

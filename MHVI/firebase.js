@@ -33,7 +33,6 @@
       //check if user is logged in
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-          // alert(user.email);
           // check which user signed in and redirect accordingly.
           if (user.email == 'admin@mhvi.com'){
             window.location.href = "admin.html";
@@ -50,10 +49,11 @@
       firebase.auth().signOut();
       window.location = "login.html";
     });
+    //databse event handlers
     const dbTable = firebase.database().ref();
 
     dbTable.startAt('A').orderByKey().on('child_added', snap => {
-        $('#tableBody').append('<tr name ='+snap.key +'><td class="item"><span>' + snap.key + '</span></td><td class = "cost">' + snap.val().Cost + '</td><td class = quantity>' + snap.val().Quantity + '</td>'+
+        $('#tableBody').append('<tr name ='+snap.key +'><td class="item" width = "254"><span>' + snap.key + '</span></td><td class = "cost" width ="531">' + snap.val().Cost + '</td><td class = quantity width ="531"> ' + snap.val().Quantity + '</td>'+
             '<td><button type = "button" class="update btn btn-primary">Update</button></td></tr>' +
             '<tr class = "hide bg-primary">'+
               '<td><button type = "button" class = "delete btn btn-danger">Delete</button></td>'+
@@ -71,26 +71,24 @@
         $nextRow.remove();
         $('tr[name = '+ snap.key +']').remove();
     });
-    //sync database changes in dropdown menu
     //grab reference to database
     const dbDropdown = firebase.database().ref();
-    //databse event handlers
-      //add all itmes from databases
-      dbDropdown.on('child_added', snap => {
-        //driver list
-        $('#list').append('<option value = ' + snap.key + '>' + snap.val().Item + '</option>');
-        $('#adminList').append('<option value = ' + snap.key + '>' + snap.val().Item + '</option>');
-      })
-      // listens for changes to any child in the database
-      dbDropdown.on('child_changed', snap => {
-        $('#list option[value='+ snap.key+']').text(snap.val().Item);
-        $('#adminList option[value='+ snap.val().Item+']').text(snap.val().Item);
-      })
-      //listens for any children removed from the database then updates the selectlist
-      dbDropdown.on('child_removed', snap => {
-        $('#list option[value='+ snap.key +']').remove();
-        $('#adminList option[value='+snap.key +']').remove();
-      })
+    //add all itmes from databases
+    dbDropdown.on('child_added', snap => {
+      //driver list
+      $('#list').append('<option value = ' + snap.key + '>' + snap.val().Item + '</option>');
+      $('#adminList').append('<option value = ' + snap.key + '>' + snap.val().Item + '</option>');
+    })
+    // listens for changes to any child in the database
+    dbDropdown.on('child_changed', snap => {
+      $('#list option[value='+ snap.key+']').text(snap.val().Item);
+      $('#adminList option[value='+ snap.val().Item+']').text(snap.val().Item);
+    })
+    //listens for any children removed from the database then updates the selectlist
+    dbDropdown.on('child_removed', snap => {
+      $('#list option[value='+ snap.key +']').remove();
+      $('#adminList option[value='+snap.key +']').remove();
+    })
 
     $('#list').change(function() {
       let listItem = $('#list').find(":selected").text();

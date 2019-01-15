@@ -29,11 +29,6 @@ $(function() {
     messages: {
       item: {
         required:"Please enter an Item",
-      },
-      weight: {
-        required: "Please enter your weight",
-        digits: "you must enter positive numbers",
-        min: "your weight must be at least 2 digits"
       }
     },
     //don't use parentheses when calling the function
@@ -44,7 +39,7 @@ $(function() {
         list: {
           required: true
         },
-        driverTxtUpdate:{
+        driverQuantityUpdate:{
           required: true,
           range:[-100,100]
         }
@@ -53,10 +48,13 @@ $(function() {
         list: {
           required: "Please select an option from the dropdown menu"
         },
-        driverTxtUpdate:{
+        driverQuantityUpdate:{
           required: "Please enter the quantity"
         }
       },
+      submitHandler: function(){
+        alert("pickup")
+      }
   });
   $("#adminSelectForm").validate({
       rules: {
@@ -81,7 +79,7 @@ $(function() {
   $('#table').validate({
     rules:{
       costTR:{
-        number:true
+        digits:true
       },
       quantityTR:{
         number:true

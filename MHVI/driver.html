@@ -1,18 +1,7 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-
   <title>MHVI - Driver</title>
-
-
-  <!-- jquery -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> -->
-  <!-- removed because part of Bootstrap functionality -->
-
-  <!-- Bootstrap functionality -->
-  <!-- SOURCE: https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
           integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
           crossorigin="anonymous"></script>
@@ -22,8 +11,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
           integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
           crossorigin="anonymous"></script>
-
-
   <!-- Initialize Firebase -->
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
   <script src="firebase.js"></script>
@@ -33,11 +20,8 @@
   <script src="validate.js"></script>
   <script src="functions.js"></script>
   <script src="btns.js"></script>
-
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico">
-  <!-- Bootstrap functionality -->
-  <!-- SOURCE: https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <!-- Font Awesome -->
@@ -46,86 +30,24 @@
   <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
-  <div class="container">
-    <h1>Driver</h1>
-    <hr>
-    <form id="driver">
-
-      <div class="form-group ">
-        <label for="list">Select Item</label>
-        <select class="form-control" name="list" id="list">
-          <option>Select Item</option>
-        </select>
-      </div>
-
-
-      <div class="form-group ">
-        <!--<pre id="driverOutput" class="f"></pre>-->
-        <label for="driverTxtUpdate">Quantity</label>
-        <input type="text" class="form-control" name="driverTxtUpdate" id="driverTxtUpdate" placeholder="Quantity">
-
-      </div>
-
-      <div class="btn-toolbar row" role="toolbar">
-        <button type="button" id="driverPickUp" class="btn btn-primary col-sm">Pick Up</button>
-        <button type="button" id="driverDropOff" class="btn btn-danger col-sm">Drop Off</button>
-      </div>
-
-      <!--If using submit button with radial buttons-->
-      <!--
-      <div class="form-group">
-      <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pickUp" value="pickUp">
-          <label class="form-check-label" for="pickUp">Pick Up</label>
-      </div>
-      <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="dropOff" value="dropOff">
-          <label class="form-check-label" for="dropOff">Drop Off</label>
-      </div>
-      </div>
-
-      <button type="button" id="submit" class="btn btn-primary">Submit</button>
-
-      -->
-    </form>
-
-
-    <hr>
-
-    <button type="button" class="btn btn-warning">Logout</button>
-  </div>
-
-<!--original-->
-  <!-- <form id="driver">
-
-       <select id="list" name="list">
-           <option value="">Select Item</option>
-       </select>
-       <pre id="driverOutput" class="f"></pre>
-       <input type="text" name="driverTxtUpdate" id="driverTxtUpdate" placeholder="driver update here">
-       <button type="button" id="driverPickUp">pick up</button>
-       <button type="button" id="driverDropOff">drop off</button>
-   </form>
-   <br>
-   <br>
-   <button type="button" id="logoutBtn">Logout</button>-->
-
-
-  <!--<form id = "driver">
-      <h1>Driver</h1>
+    <button type = "button" id ="driverPickUp">pick up</button>
+    <button type = "button" id ="driverDropOff">drop off</button>
+    <form id = "driver" class = "hide">
+      <h1 id = "pickUpHeading" class = "hide">Pick Up</h1>
+      <h1 id = "dropOffHeading" class = "hide">Drop Off</h1>
       <select id = "list" class ="form-control" name = "list">
         <option value = "">Select Item</option>
       </select>
       <pre id = "driverOutput" class = "f"></pre>
-      <input type ="text" name ="driverTxtUpdate" id = "driverTxtUpdate" placeholder = "Quantity">
-      <button type = "button" id ="driverPickUp">pick up</button>
-      <button type = "button" id ="driverDropOff">drop off</button>
+      <input type ="text" name ="driverQuantityUpdate" id = "driverQuantityUpdate" placeholder = "Quantity">
+      <button type = "button" id = "driverDropOffSubmit" class = "hide">Submit Drop Off</button>
+      <button type = "button" id = "driverPickUpSubmit" class = "hide">Submit Pick Up</button>
+      <button type = "button" id = "driverBack" class = "hide">Go Back</button>
     </form>
-    
+
     </div>
     <br>
     <br>
-    <button type = "button" class = "btn btn-primary btn-lg btn-block" id = "logoutBtn">Logout</button>-->
-
+    <button type = "button" class = "btn btn-primary btn-lg btn-block" id = "logoutBtn">Logout</button>
   </body>
 </html>
