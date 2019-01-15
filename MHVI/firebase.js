@@ -63,7 +63,7 @@
             '</td></tr>');
           });
     dbTable.on('child_changed', snap => {
-        $('tr[name =' + snap.key +']').find(".cost").html(snap.val().Cost);
+        $('tr[name =' + String(snap.key) +']').find(".cost").html(snap.val().Cost);
         $('tr[name =' + snap.key +']').find(".quantity").html(snap.val().Quantity);
     });
     dbTable.on('child_removed', snap => {
@@ -71,6 +71,44 @@
         $nextRow.remove();
         $('tr[name = '+ snap.key +']').remove();
     });
+
+
+    const dbReportTable = firebase.database().ref();
+    dbReportTable.startAt('A').orderByKey().on('child_added', snap => {
+
+      // totalInventoryItems += 1;
+      // totalCost += snap.val().Cost;
+      // totalQuantity += snap.val().Quantity;
+      // console.log(totalInventoryItems);
+      // console.log(snap.val());
+      $('#reportTableBody').append('<tr><td class="item" width = "254"><span>' + snap.key + '</span></td>'+
+          '<td class = "cost" width ="531">' + snap.val().Cost + '</td>'+
+          '<td width ="531"> ' + snap.val().Quantity + '</td>'+
+          '<td>'+ (snap.val().Cost * snap.val().Quantity) +'</td></tr>');
+     });
+     dbReportTable.on('value', snap => {
+       let totalInventoryItems = 0;
+       let totalCost = 0;
+       let totalQuantity = 0;
+      //  console.log(value);
+       snap.forEach(function(){
+         totalInventoryItems++;
+        //  totalCost+= snap.val().Cost;
+        console.log(snap.child('apples').val());
+       });
+      //  console.log(totalCost);
+      //  console.log(totalInventoryItems);
+       //  $('#reportTableBody').append('<tr><td>Totals</td><td>'+totalInventoryItems+'');
+       //  $('#total').append('<h3>Inventory Items:</h3>' + totalInventoryItems);
+     });
+
+    //  dbReportTable.on()
+
+
+
+
+
+
     //grab reference to database
     const dbDropdown = firebase.database().ref();
     //add all itmes from databases
