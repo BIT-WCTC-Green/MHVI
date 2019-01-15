@@ -49,21 +49,32 @@
 
 </head>
 <body>
-  <div class="jumbotron vertical-center">
-    <div class="container">
-      <h1 class="text-center">MHVI Inventory Login</h1>
-      <div class="mx-auto col-sm-6">
-        <form>
+<div class="container text-center">
+    <h1>MHVI Inventory Login</h1>
+
+
+    <!--Bootstrap form-->
+    <form>
+
         <div class="form-group">
-          <input type="email" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="Email">
+            <label for="userName" class="col-form-label">Email Address</label>
+            <div class="col-md-6 mx-auto">
+                <input type="email" class="form-control" id="userName" aria-describedby="emailHelp"
+                       placeholder="Enter email">
+            </div>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" id="password" placeholder="Password">
+            <label for="password" class="col-form-label">Password</label>
+            <div class="col-md-6 mx-auto">
+                <input type="password" class="form-control" id="password" placeholder="Enter password">
+            </div>
         </div>
-          <button type="button" class="btn btn-primary btn-block" id="loginBtn">Login</button>
-        </form>
-      </div>
-    </div>
-  </div>
+
+
+        <button type="button" class="btn btn-primary" id="loginBtn">Login</button>
+    </form>
+
+
+</div>
 </body>
 </html>
