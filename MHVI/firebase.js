@@ -74,32 +74,26 @@
 
 
     const dbReportTable = firebase.database().ref();
-    dbReportTable.startAt('A').orderByKey().on('child_added', snap => {
-
-      // totalInventoryItems += 1;
-      // totalCost += snap.val().Cost;
-      // totalQuantity += snap.val().Quantity;
-      // console.log(totalInventoryItems);
-      // console.log(snap.val());
-      $('#reportTableBody').append('<tr><td class="item" width = "254"><span>' + snap.key + '</span></td>'+
-          '<td class = "cost" width ="531">' + snap.val().Cost + '</td>'+
-          '<td width ="531"> ' + snap.val().Quantity + '</td>'+
-          '<td>'+ (snap.val().Cost * snap.val().Quantity) +'</td></tr>');
-     });
      dbReportTable.on('value', snap => {
        let totalInventoryItems = 0;
        let totalCost = 0;
        let totalQuantity = 0;
       //  console.log(value);
-       snap.forEach(function(){
+       snap.forEach(function(child){
+         $('#reportTableBody').append('<tr><td class="item" width = "254"><span>' + child.val().Item + '</span></td>'+
+             '<td class = "cost" width ="531">' + child.val().Cost + '</td>'+
+             '<td width ="531"> ' + child.val().Quantity + '</td>'+
+             '<td>'+ (child.val().Cost * child.val().Quantity) +'</td></tr>');
          totalInventoryItems++;
-        //  totalCost+= snap.val().Cost;
-        console.log(snap.child('apples').val());
+         totalCost+= child.val().Cost;
+         totalQuantity+=child.val().Quantity;
        });
       //  console.log(totalCost);
       //  console.log(totalInventoryItems);
        //  $('#reportTableBody').append('<tr><td>Totals</td><td>'+totalInventoryItems+'');
-       //  $('#total').append('<h3>Inventory Items:</h3>' + totalInventoryItems);
+        $('#total').append('<h3>Inventory Items:</h3>' + totalInventoryItems +
+                           '<br><h3>Total Cost:</h3>' + totalCost+
+                           '<br><h3>Total Quantity:</h3>' + totalCost);
      });
 
     //  dbReportTable.on()
