@@ -1,12 +1,23 @@
 function dbWrite() {
+  //clean up user input
+  let item = $('#item').val().replace(/\//g, "\\").replace(/\.|\#|\$|\[|\]/g,"").toLowerCase();
+  // .replace(/ /g,'_').replace(/\&/g,"and").replace(/w\//g,"with_").replace(/\/|\\/g,"-").toLowerCase();
   //reference to database
-  const dbWrite = firebase.database().ref().child($('#item').val().replace(/ /g,'').toLowerCase());
-  dbWrite.set({
-    Item:$('#item').val().replace(/ /g,'').toLowerCase(),
-    Quantity:(parseInt($('#quantity').val())),
-    Cost:(parseFloat($('#cost').val())),
-    Date: firebase.database.ServerValue.TIMESTAMP
-  })
+  const dbWrite = firebase.database().ref().child(item);
+
+  // check if item already exists in the database
+  dbWrite.once('value', snap => {
+    if (snap.exists()){
+      alert(item + " is already in the database");
+    }else{
+      dbWrite.set({
+        Item:item,
+        Quantity:(parseInt($('#quantity').val())),
+        Cost:(parseFloat($('#cost').val())),
+        Date: firebase.database.ServerValue.TIMESTAMP
+      });
+    }
+  });
 }
 //item = name of item we want to change
 //quanityTxtField = txtField with quanity we want to add or subtract
