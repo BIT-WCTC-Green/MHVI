@@ -17,15 +17,15 @@
   padding-left: 20px;
   padding-top: 10px;
 }
+#pickupHeading {
+  background-color: lightcoral;
+}
 h1{
   margin: 10px 0;
 }
 body {
   font-family: "Open Sans";
   font-size: 14px;
-}
-table {
-  color:black;
 }
 .f {
   color:#000;
