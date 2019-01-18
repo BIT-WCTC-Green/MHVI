@@ -1,65 +1,61 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
-* {
-  margin: 0;
-  padding: 0;
+
+/*center elements*/
+#putincenter {
+  text-align:center;
+  align-items:center;
+  justify-content:center;
 }
-.f{
-  color:#000;
-  /*margin-top: 80px;*/
-  /*text-align:center;*/
+#textinput {
+  margin-right: 25%;
+  margin-left: 25%;
 }
-.inline{
-  float:left;
+#driverPickUp, #driverDropOff {
+  height: 250px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+#driverDropOffSubmit {
+  background-color: lightcoral;
+}
+#driverPickUpSubmit {
+  background-color: lightgreen;
+}
+#pickup {
+  background-color: lightgreen;
+  font-size: 50px;
+}
+#dropoff {
+  background-color: lightcoral;
+  font-size: 50px;
+}
+h1{
+  margin: 10px 0;
 }
 body {
   font-family: "Open Sans";
   font-size: 14px;
 }
-.container {
-  width: 500px;
-  margin: 25px auto;
-  border-radius:25px;
+table {
+  color:black;
 }
-/*div{
-  outline: solid 1px red;
-}*/
-
-form {
-  padding: 20px;
-  background: #B4B7BA;
-  color: #000;
-  box-shadow: 2px 2px 2px #313131;
-  width:570px;
+.f {
+  color:#000;
 }
-
-label,
-button {
-  border: 0;
-  margin-bottom: 3px;
-  margin-top:3px;
+.row button {
+  margin: 14px
+}
+.margin {
+  margin-right:8px;
+}
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+  /*display: flex;*/
   display: block;
-  width: 100%;
-}
-
-input {
-  height: 25px;
-  /*width: 700px;*/
-  line-height: 25px;
-  background: #fff;
-  color: #000;
-  /*padding: 0 6px 6px 0;*/
-  margin-right: 8px;
-  padding-right: 6px;
-  box-shadow:2px 2px 2px #313131;
-}
-
-button {
-  height: 30px;
-  line-height: 30px;
-  background: #F0EDE5;
-  color: #000;
-  box-shadow:2px 2px 2px #313131;
+  align-items: center;
 }
 .not {
   color: red;
@@ -69,8 +65,27 @@ button {
 }
 .error {
   color: #F00;
-  font-size: 10px;
+  font-size: 15px;
 }
 .hide{
-  visibility:hidden;
+  display:none;
+}
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Open Sans";
+  font-size: 30px;
+}
+@media (min-width: 768px) {
+  .vertical-center {
+    /*if larger than smart phone, vertical align container*/
+    display: flex;
+  }
 }
