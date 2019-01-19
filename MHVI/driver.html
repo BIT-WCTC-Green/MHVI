@@ -28,28 +28,33 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- site stylesheet -->
   <link rel="stylesheet" type="text/css" href="style.css"/>
-  </head>
 
+  <!-- Need full jquery for UI can't use slim -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <!-- Jquery UI -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  </head>
 <body>
     <div class="container">
     <input type = "image" src="pickup.png" id ="driverPickUp">
     <input type = "image" src="dropoff.png" id ="driverDropOff">
     </div>
     <br>
-
     <div id="putincenter">
-    <form id = "driver" class = "hide">
-      <h1 id = "pickUpHeading" class = "hide"><div id="pickup">PICK UP</div></h1>
-      <h1 id = "dropOffHeading" class = "hide"><div id="dropoff">DROP OFF</div></h1>
-      <br><br>
-      <input type ="text" name ="searchName" id = "searchName" placeholder = "Item name">
-      <input type ="text" name ="driverQuantityUpdate" id = "driverQuantityUpdate" placeholder = "Quantity">
-      <pre id = "driverOutput" class = "f"></pre>
-      <br><br>
-      <button type = "button" id = "driverDropOffSubmit" class = "btn btn-primary btn-lg">Submit Drop Off</button>
-      <button type = "button" id = "driverPickUpSubmit" class = "btn btn-primary btn-lg">Submit Pick Up</button>
-      <button type="button" id="driverBack" class="btn btn-primary btn-lg">Back</button>
-    </form>
+      <form id = "driver" class = "hide">
+        <h1 id = "pickUpHeading" class = "hide"><div id="pickup">PICK UP</div></h1>
+        <h1 id = "dropOffHeading" class = "hide"><div id="dropoff">DROP OFF</div></h1>
+        <br><br>
+        <input type ="text" name ="searchName" id = "searchName" placeholder = "Item name">
+        <input type ="text" name ="driverQuantityUpdate" id = "driverQuantityUpdate" placeholder = "Quantity">
+        <pre id = "driverOutput" class = "f"></pre>
+        <br><br>
+        <button type = "button" id = "driverDropOffSubmit" class = "btn btn-primary btn-lg">Submit Drop Off</button>
+        <button type = "button" id = "driverPickUpSubmit" class = "btn btn-primary btn-lg">Submit Pick Up</button>
+        <button type="button" id="driverBack" class="btn btn-primary btn-lg">Back</button>
+      </form>
     </div>
     <br>
     <button type = "button" class = "btn btn-primary btn-lg btn-block" id = "logoutBtn">Logout</button>

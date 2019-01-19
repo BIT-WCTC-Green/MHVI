@@ -49,9 +49,11 @@
       firebase.auth().signOut();
       window.location = "login.html";
     });
+
     //databse event handlers
     const dbTable = firebase.database().ref();
 
+    let dbAutocomplete = [];
     dbTable.startAt('A').orderByKey().on('child_added', snap => {
         $('#tableBody').append('<tr name ='+ snap.key +'><td class="item" width = "254"><span>' + snap.key + '</span></td><td class = "cost" width ="531">' + snap.val().Cost + '</td><td class = quantity width ="531"> ' + snap.val().Quantity + '</td>'+
             '<td><button type = "button" class="update btn btn-primary">Update</button></td></tr>' +
@@ -61,7 +63,13 @@
               '<td class = "hidden"><input type="text" name="quantityTR" placeholder="Quantity"></td>'+
               '<td><button type = "button" class = "submit btn btn-warning">Submit</button>'+
             '</td></tr>');
+
+            dbAutocomplete.push(snap.key);
           });
+          $( "#searchName" ).autocomplete({
+            source: dbAutocomplete
+          });
+
     // dbTable.on('child_changed', snap => {
     //     $('tr[name =' + snap.key +']').find(".cost").html(snap.val().Cost);
     //     $('tr[name =' + snap.key +']').find(".quantity").html(snap.val().Quantity);
