@@ -26,7 +26,7 @@ $(document).ready(function(){
   $('#driverDropOffSubmit').click(function() {
     //check if driver form meets validation rules
     let item = $('#searchName').val();
-    if ($('#driver').valid() && exsitsInDB(item)) {
+    if ($('#driver').valid() && existsInDB(item)) {
       let quantity = $('#driverQuantityUpdate').val();
       updateDatabase(item,(-1 * quantity));
       $('#driverOutput').html('Successful');
