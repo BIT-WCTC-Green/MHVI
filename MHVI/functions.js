@@ -1,7 +1,6 @@
 function dbWrite() {
   //clean up user input
   let item = $('#item').val().replace(/\//g, "\\").replace(/\.|\#|\$|\[|\]/g,"").toLowerCase();
-  // .replace(/ /g,'_').replace(/\&/g,"and").replace(/w\//g,"with_").replace(/\/|\\/g,"-").toLowerCase();
   //reference to database
   const dbWrite = firebase.database().ref().child(item);
 
@@ -25,8 +24,6 @@ function existsInDB(item){
   db.once('value', snap =>{
     if (snap.exists()) {
       flag = true;
-    }else{
-      flag = false;
     }
   });
   return flag;

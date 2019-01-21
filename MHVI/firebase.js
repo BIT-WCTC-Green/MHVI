@@ -55,7 +55,7 @@
 
     let dbAutocomplete = [];
     dbTable.startAt('A').orderByKey().on('child_added', snap => {
-        $('#tableBody').append('<tr name ='+ snap.key +'><td class="item" width = "254"><span>' + snap.key + '</span></td><td class = "cost" width ="531">' + snap.val().Cost + '</td><td class = quantity width ="531"> ' + snap.val().Quantity + '</td>'+
+        $('#tableBody').append('<tr name ='+ snap.key +'><td class="item" width = "254"><span>' + snap.key + '</span></td><td class = "cost" width ="531">' + snap.val().Cost.toLocaleString('en')   + '</td><td class = quantity width ="531"> ' + snap.val().Quantity.toLocaleString('en')  + '</td>'+
             '<td><button type = "button" class="update btn btn-primary">Update</button></td></tr>' +
             '<tr class = "hide bg-primary">'+
               '<td><button type = "button" class = "delete btn btn-danger">Delete</button></td>'+
@@ -69,71 +69,61 @@
     $( "#searchName" ).autocomplete({
       source: dbAutocomplete
     });
-
-    // dbTable.on('child_changed', snap => {
-    //     $('tr[name =' + snap.key +']').find(".cost").html(snap.val().Cost);
-    //     $('tr[name =' + snap.key +']').find(".quantity").html(snap.val().Quantity);
-    // });
-    // dbTable.on('child_removed', snap => {
-    //     let $nextRow = $('tr[name = '+ snap.key +']').next("tr");
-    //     $nextRow.remove();
-    //     $('tr[name = '+ snap.key +']').remove();
-    // });
     const dbReportTable = firebase.database().ref();
      dbReportTable.on('value', snap => {
        let totalInventoryItems = 0;
        let totalCost = 0;
        let totalQuantity = 0;
+       let totalInventoryValue = 0;
 
        snap.forEach(function(child){
          $('#reportTableBody').append('<tr><td class="item" width = "254"><span>' + child.val().Item + '</span></td>'+
-             '<td class = "cost" width ="531">' + child.val().Cost + '</td>'+
-             '<td width ="531"> ' + child.val().Quantity + '</td>'+
-             '<td>'+ (child.val().Cost * child.val().Quantity).toFixed(2) +'</td></tr>');
+             '<td class = "cost" width ="531">' + child.val().Cost.toLocaleString('en')  + '</td>'+
+             '<td width ="531"> ' + child.val().Quantity.toLocaleString('en')  + '</td>'+
+             '<td>'+ (child.val().Cost * child.val().Quantity).toLocaleString('en')  +'</td></tr>');
          totalInventoryItems++;
          totalCost+= child.val().Cost;
          totalQuantity+=child.val().Quantity;
+         totalInventoryValue+=(child.val().Cost * child.val().Quantity);
        });
-      //  console.log(totalCost);
-      //  console.log(totalInventoryItems);
-       //  $('#reportTableBody').append('<tr><td>Totals</td><td>'+totalInventoryItems+'');
-        $('#total').append('<h3>Inventory Items:</h3>' + totalInventoryItems +
-                           '<br><h3>Total Cost:</h3>' + totalCost+
-                           '<br><h3>Total Quantity:</h3>' + totalCost);
+        $('#total').append('<h3>Inventory Items:</h3>' + totalInventoryItems.toLocaleString('en') +
+                           '<br><h3>Total Cost:</h3>' +'$'+totalCost.toLocaleString('en')+
+                           '<br><h3>Total Quantity:</h3>' + totalQuantity.toLocaleString('en')+
+                           '<br><h3>Total Inventory Value:</h3>' +'$'+ totalInventoryValue.toLocaleString('en'));
      });
-    //grab reference to database
-    const dbDropdown = firebase.database().ref();
-    //add all itmes from databases
-    dbDropdown.on('child_added', snap => {
-      //driver list
-      $('#list').append('<option value = ' + snap.key + '>' + snap.val().Item + '</option>');
-      $('#adminList').append('<option value = ' + snap.key + '>' + snap.val().Item + '</option>');
-    })
-    // listens for changes to any child in the database
-    dbDropdown.on('child_changed', snap => {
-      // $('#list option[value='+ snap.val().Item+']').text(snap.val().Item);
-      $('#adminList option[value='+ snap.key+']').text(snap.val().Item);
-      $('#list option[value='+ snap.key +']').text(snap.val().Item);
-
-    })
-    //listens for any children removed from the database then updates the selectlist
-    dbDropdown.on('child_removed', snap => {
-      $('#list option[value='+ snap.key +']').remove();
-      $('#adminList option[value='+snap.key +']').remove();
-    })
-
-    $('#list').change(function() {
-      let listItem = $('#list').find(":selected").text();
-      if (listItem != "Select Item"){
-        searchDatabase(listItem,$(driverOutput));
-      }
-    });
-    $('#adminList').change(function() {
-      let listItem = $('#adminList').find(":selected").text();
-      if (listItem != "Select Item"){
-        searchDatabase(listItem,$(output));
-      }
-    });
+    // //grab reference to database
+    // const dbDropdown = firebase.database().ref();
+    // //add all itmes from databases
+    // dbDropdown.on('child_added', snap => {
+    //   //driver list
+    //   $('#list').append('<option value = ' + snap.key + '>' + snap.val().Item + '</option>');
+    //   $('#adminList').append('<option value = ' + snap.key + '>' + snap.val().Item + '</option>');
+    // })
+    // // listens for changes to any child in the database
+    // dbDropdown.on('child_changed', snap => {
+    //   // $('#list option[value='+ snap.val().Item+']').text(snap.val().Item);
+    //   $('#adminList option[value='+ snap.key+']').text(snap.val().Item);
+    //   $('#list option[value='+ snap.key +']').text(snap.val().Item);
+    //
+    // })
+    // //listens for any children removed from the database then updates the selectlist
+    // dbDropdown.on('child_removed', snap => {
+    //   $('#list option[value='+ snap.key +']').remove();
+    //   $('#adminList option[value='+snap.key +']').remove();
+    // })
+    //
+    // $('#list').change(function() {
+    //   let listItem = $('#list').find(":selected").text();
+    //   if (listItem != "Select Item"){
+    //     searchDatabase(listItem,$(driverOutput));
+    //   }
+    // });
+    // $('#adminList').change(function() {
+    //   let listItem = $('#adminList').find(":selected").text();
+    //   if (listItem != "Select Item"){
+    //     searchDatabase(listItem,$(output));
+    //   }
+    // });
     //doc.ready()
     });
 //function

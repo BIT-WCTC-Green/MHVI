@@ -24,28 +24,26 @@ $(document).ready(function(){
     $('#driverBack').show();
   });
   $('#driverDropOffSubmit').click(function() {
-    //check if driver form meets validation rules
     let item = $('#searchName').val();
+    //check if driver form meets validation rules and item is in database
     if ($('#driver').valid() && existsInDB(item)) {
       let quantity = $('#driverQuantityUpdate').val();
       updateDatabase(item,(-1 * quantity));
       $('#driverOutput').html('Successful');
     }else{
-      $('#driverOutput').html('Please check that the form contains all the correct information');
+      $('#driverOutput').html('Please check that the item you entered is in the database');
     }
   });
   $('#driverPickUpSubmit').click(function() {
-    //check if driver form meets validation rules
     let item = $('#searchName').val();
+    //check if driver form meets validation rules and item is in database
     if ($('#driver').valid() && existsInDB(item)) {
       let quantity = $('#driverQuantityUpdate').val();
       updateDatabase(item,quantity);
       $('#driverOutput').html('Successful');
     }else{
-      $('#driverOutput').html('Please check that the form contains all the correct information');
+      $('#driverOutput').html('Please check that the item you entered is in the database');
     }
-
-
   });
   $('#driverBack').click(function(){
     $('#driverDropOff').removeClass("hide");
