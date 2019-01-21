@@ -13,11 +13,11 @@
     //search database for item
     $("#search").click(function(){
         //grab string from searchName textbox
-        searchDatabase($('#searchName').val(),$('#object'));
+        searchDatabase($('#adminSearch').val(),$('#object'));
     });
     //update quanitity of item
     $('#btnUpdate').click(function(){
-      updateDatabase(String($('#searchName').val()),$('#txtUpdate').val());
+      updateDatabase(String($('#adminSearch').val()),$('#txtUpdate').val());
     });
     $('#loginBtn').click(function(){
       let usr = $('#userName').val();
@@ -65,10 +65,10 @@
             '</td></tr>');
 
             dbAutocomplete.push(snap.key);
-          });
-          $( "#searchName" ).autocomplete({
-            source: dbAutocomplete
-          });
+    });
+    $( "#searchName" ).autocomplete({
+      source: dbAutocomplete
+    });
 
     // dbTable.on('child_changed', snap => {
     //     $('tr[name =' + snap.key +']').find(".cost").html(snap.val().Cost);
@@ -89,7 +89,7 @@
          $('#reportTableBody').append('<tr><td class="item" width = "254"><span>' + child.val().Item + '</span></td>'+
              '<td class = "cost" width ="531">' + child.val().Cost + '</td>'+
              '<td width ="531"> ' + child.val().Quantity + '</td>'+
-             '<td>'+ (child.val().Cost * child.val().Quantity) +'</td></tr>');
+             '<td>'+ (child.val().Cost * child.val().Quantity).toFixed(2) +'</td></tr>');
          totalInventoryItems++;
          totalCost+= child.val().Cost;
          totalQuantity+=child.val().Quantity;

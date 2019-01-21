@@ -36,12 +36,12 @@ $(function() {
   });
   $("#driver").validate({
       rules: {
-        list: {
+        searchName: {
           required: true
         },
         driverQuantityUpdate:{
           required: true,
-          range:[-100,100]
+          min:0
         }
       },
       messages: {

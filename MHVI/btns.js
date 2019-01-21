@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  $('#printReport').click(function(){
+    window.location = 'reports.html';
+  })
   $('#driverDropOff').click(function(){
     $('#driverDropOff').addClass("hide");
     $('#driverPickUp').addClass("hide");
@@ -22,25 +25,34 @@ $(document).ready(function(){
   });
   $('#driverDropOffSubmit').click(function() {
     //check if driver form meets validation rules
-    if ($('#driver').valid()) {
-      let item = $('#list').find(":selected").text();
+    let item = $('#searchName').val();
+    if ($('#driver').valid() && exsitsInDB(item)) {
       let quantity = $('#driverQuantityUpdate').val();
       updateDatabase(item,(-1 * quantity));
+      $('#driverOutput').html('Successful');
+    }else{
+      $('#driverOutput').html('Please check that the form contains all the correct information');
     }
   });
   $('#driverPickUpSubmit').click(function() {
     //check if driver form meets validation rules
-    if ($('#driver').valid()) {
-      let item = $('#list').find(":selected").text();
+    let item = $('#searchName').val();
+    if ($('#driver').valid() && existsInDB(item)) {
       let quantity = $('#driverQuantityUpdate').val();
       updateDatabase(item,quantity);
+      $('#driverOutput').html('Successful');
+    }else{
+      $('#driverOutput').html('Please check that the form contains all the correct information');
     }
+
+
   });
   $('#driverBack').click(function(){
     $('#driverDropOff').removeClass("hide");
     $('#driverPickUp').removeClass("hide");
     $('#driver').hide();
     $('#driverBack').hide();
+    location.reload();
   });
 
   //btn class update

@@ -60,8 +60,9 @@ table {
 .not {
   color: red;
 }
-.approved {
+.success {
   color: green;
+  font-size: 25px;
 }
 .error {
   color: #F00;
