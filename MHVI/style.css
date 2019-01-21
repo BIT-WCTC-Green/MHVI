@@ -100,7 +100,10 @@ table {
   color: white;
 }
 
-
+.btn-tall{
+  height: 200px;
+  margin-top: 20px;
+}
 
 .bg-mhvi-primary{
   background-color: #1c4073;
