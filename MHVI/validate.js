@@ -3,10 +3,6 @@ $(function() {
   jQuery.validator.addMethod("lettersonly", function(value, element) {
     return this.optional(element) || /^[a-z\s]+$/i.test(value);
   }, "Only alphabetical characters and spaces");
-  jQuery.validator.addClassRules('hiddenTr', {
-          // required: true,
-          lettersonly:true
-    });
   $("form[name='mhvi']").validate({
     // Specify validation rules
     rules: {
@@ -36,12 +32,12 @@ $(function() {
   });
   $("#driver").validate({
       rules: {
-        list: {
+        searchName: {
           required: true
         },
         driverQuantityUpdate:{
           required: true,
-          range:[-100,100]
+          min:0
         }
       },
       messages: {
@@ -79,10 +75,11 @@ $(function() {
   $('#table').validate({
     rules:{
       costTR:{
-        digits:true
+        number:true,
+        min:0
       },
       quantityTR:{
-        number:true
+        digits:true
       }
     }
   });

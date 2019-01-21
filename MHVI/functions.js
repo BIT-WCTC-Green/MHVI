@@ -1,12 +1,32 @@
 function dbWrite() {
+  //clean up user input
+  let item = $('#item').val().replace(/\//g, "\\").replace(/\.|\#|\$|\[|\]/g,"").toLowerCase();
   //reference to database
-  const dbWrite = firebase.database().ref().child($('#item').val().replace(/ /g,'').toLowerCase());
-  dbWrite.set({
-    Item:$('#item').val().replace(/ /g,'').toLowerCase(),
-    Quantity:(parseInt($('#quantity').val())),
-    Cost:(parseFloat($('#cost').val())),
-    Date: firebase.database.ServerValue.TIMESTAMP
-  })
+  const dbWrite = firebase.database().ref().child(item);
+
+  // check if item already exists in the database
+  dbWrite.once('value', snap => {
+    if (snap.exists()){
+      alert(item + " is already in the database");
+    }else{
+      dbWrite.set({
+        Item:item,
+        Quantity:(parseInt($('#quantity').val())),
+        Cost:(parseFloat($('#cost').val())),
+        // Date: firebase.database.ServerValue.TIMESTAMP
+      });
+    }
+  });
+}
+function existsInDB(item){
+  const db = firebase.database().ref().child(item)
+  let flag = false;
+  db.once('value', snap =>{
+    if (snap.exists()) {
+      flag = true;
+    }
+  });
+  return flag;
 }
 //item = name of item we want to change
 //quanityTxtField = txtField with quanity we want to add or subtract
@@ -40,11 +60,11 @@ function searchDatabase(searchTerm,output){
   const dbRead = firebase.database().ref().child(searchTerm);
   dbRead.on('value', snap => {
     //get timestamp from firebase and convert to javascript Date object
-    let date = new Date(snap.val().Date);
+    // let date = new Date(snap.val().Date);
     output.html("Item: " + snap.val().Item +
         "\nCost: " + snap.val().Cost +
-        "\nQuantity: " + snap.val().Quantity +
-        "\nDate: " + (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getFullYear());
+        "\nQuantity: " + snap.val().Quantity);
+        // "\nDate: " + (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getFullYear());
     });
   }
   function driverQuantityUpdate(){

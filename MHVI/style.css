@@ -11,7 +11,7 @@
   margin-right: 25%;
   margin-left: 25%;
 }
-#driverPickUp, #driverDropOff {
+/*#driverPickUp, #driverDropOff {
   height: 250px;
   padding-right: 20px;
   padding-left: 20px;
@@ -30,7 +30,7 @@
 #dropoff {
   background-color: lightcoral;
   font-size: 50px;
-}
+}*/
 h1{
   margin: 10px 0;
 }
@@ -60,8 +60,9 @@ table {
 .not {
   color: red;
 }
-.approved {
+.success {
   color: green;
+  font-size: 25px;
 }
 .error {
   color: #F00;
@@ -83,6 +84,39 @@ table {
   font-family: "Open Sans";
   font-size: 30px;
 }
+
+.btn-mhvi-primary{
+  background-color: #1c4073;
+  color: white;
+}
+
+.btn-mhvi-secondary{
+   background-color: #487a38;
+   color: white;
+ }
+
+.btn-mhvi-red{
+  background-color: #b62826;
+  color: white;
+}
+
+
+
+.bg-mhvi-primary{
+  background-color: #1c4073;
+  color: white;
+}
+
+.bg-mhvi-secondary{
+  background-color: #487a38;
+  color: white;
+}
+
+.color-mhvi-primary{
+  color: #1c4073;
+}
+
+
 @media (min-width: 768px) {
   .vertical-center {
     /*if larger than smart phone, vertical align container*/

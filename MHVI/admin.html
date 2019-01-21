@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>MHVI - Admin</title>
-    <!-- Bootstrap functionality -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
-    <!-- Initialize Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
-    <script src="firebase.js"></script>
-    <!-- validation -->
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></script>
-    <!-- site scripts -->
-    <script src="validate.js"></script>
-    <script src="functions.js"></script>
-    <script src="btns.js"></script>
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico">
-    <!-- Bootstrap functionality -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- site stylesheet -->
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
+  <meta charset="UTF-8">
+  <title>MHVI - Admin</title>
+  <!-- Need full jquery for UI can't use slim -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+          integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+          integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+          crossorigin="anonymous"></script>
+  <!-- Initialize Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+  <script src="firebase.js"></script>
+  <!-- validation -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></script>
+  <!-- site scripts -->
+  <script src="validate.js"></script>
+  <script src="functions.js"></script>
+  <script src="btns.js"></script>
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- site stylesheet -->
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <!-- Jquery UI -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  </head>
 <body>
 <div class="container">
-    <div class="p-4 bg-primary text-white text-center">
+    <div class="p-4 bg-mhvi-primary text-center">
         <h1>MHVI</h1>
         <h2>Database Entry Form</h2>
     </div>
@@ -42,7 +42,7 @@
 
         <form name="mhvi" class="form-inline justify-content-center">
             <fieldset>
-                <legend class="text-center">Add New Item</legend>
+                <legend class="text-center color-mhvi-primary">Add New Item</legend>
 
                 <!--<label for="item">Item:</label>-->
                 <input type="text" class="form-control" name="item" id="item" placeholder="Name of item">
@@ -54,14 +54,14 @@
                 <!--<label for="quantity">Quantity:</label>-->
                 <input type="number" class="form-control" name="quantity" id="quantity" placeholder="Quantity of item">
 
-            <button type="submit" id="submit" class="btn btn-secondary">Submit</button>
+            <button type="submit" id="submit" class="btn btn-mhvi-primary">Submit</button>
             </fieldset>
         </form>
 
     <hr>
     <form id="table">
         <fieldset>
-            <legend class="text-center">Update Database</legend>
+            <legend class="text-center color-mhvi-primary">Update Database</legend>
         <table id="itemTable" class="table  table-hover table-bordered">
             <thead class="thead-dark">
             <tr>
@@ -76,22 +76,18 @@
         </table>
         </fieldset>
     </form>
-
+<!--
     <hr>
 
 
     <form id="admin" class="form-inline justify-content-center">
         <fieldset>
             <legend class="text-center">Search Database</legend>
-
-        <!--<input type="text" name="searchName" id="searchName" placeholder="search here">
-        <button type="button" id="search">Search</button>
-        <pre id="object" class="f"></pre>
-        <input type="text" name="txtUpdate" id="txtUpdate" placeholder="update here">
-        <button type="button" id="btnUpdate">Update</button>-->
-            <input type="text" class="form-control col-sm-4" name="searchName" id="searchName" placeholder="Search item...">
+            <input type="text" class="form-control col-sm-4" name="adminSearch" id="adminSearch" placeholder="Search item...">
+            <button type ="button" class="btn btn-secondary" id ="search">Search</button>
+            <pre id = "object" class = "f"></pre>
             <input type="text" class="form-control col-sm-4" name="txtUpdate" id="txtUpdate" placeholder="Update Quantity">
-            <button type="submit" id="btnUpdate" class="btn btn-secondary">Update</button>
+            <button type="button" id="btnUpdate" class="btn btn-secondary">Update</button>
         </fieldset>
     </form>
     <br>
@@ -105,7 +101,6 @@
         <pre id="output" class="f"></pre>
         <input type="text" name="adminSelectQuantity" id="adminSelectQuantity" placeholder="quantity">
         <button type="submit" id="adminBtnUpdate">Update</button>
-        <!-- <button type = "button" id ="btnRemove">Remove Item</button> -->
     </form>
     <br>
     <br>
@@ -114,9 +109,9 @@
         <input type="radio" name="report" value="annual">annual
         <input type="radio" name="report" value="quarterly" checked="checked">quaterly<br>
         <input type="submit" value="Submit">
-        <button type="button" id="printReport">print Report</button>
-    </form>
-    <button type="button" class="btn btn-primary btn-lg btn-block" id="logoutBtn">Logout</button>
+    </form> -->
+    <button type="button" class="btn btn-mhvi-secondary btn-lg btn-block" id="printReport">print Report</button>
+    <button type="button" class="btn btn-mhvi-primary btn-lg btn-block" id="logoutBtn">Logout</button>
 </div>
 </body>
 </html>

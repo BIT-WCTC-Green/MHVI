@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  $('#printReport').click(function(){
+    window.location = 'reports.html';
+  })
   $('#driverDropOff').click(function(){
     $('#driverDropOff').addClass("hide");
     $('#driverPickUp').addClass("hide");
@@ -21,26 +24,33 @@ $(document).ready(function(){
     $('#driverBack').show();
   });
   $('#driverDropOffSubmit').click(function() {
-    //check if driver form meets validation rules
-    if ($('#driver').valid()) {
-      let item = $('#list').find(":selected").text();
+    let item = $('#searchName').val();
+    //check if driver form meets validation rules and item is in database
+    if ($('#driver').valid() && existsInDB(item)) {
       let quantity = $('#driverQuantityUpdate').val();
       updateDatabase(item,(-1 * quantity));
+      $('#driverOutput').html('Successful');
+    }else{
+      $('#driverOutput').html('Please check that the item you entered is in the database');
     }
   });
   $('#driverPickUpSubmit').click(function() {
-    //check if driver form meets validation rules
-    if ($('#driver').valid()) {
-      let item = $('#list').find(":selected").text();
+    let item = $('#searchName').val();
+    //check if driver form meets validation rules and item is in database
+    if ($('#driver').valid() && existsInDB(item)) {
       let quantity = $('#driverQuantityUpdate').val();
       updateDatabase(item,quantity);
-    }   
+      $('#driverOutput').html('Successful');
+    }else{
+      $('#driverOutput').html('Please check that the item you entered is in the database');
+    }
   });
   $('#driverBack').click(function(){
     $('#driverDropOff').removeClass("hide");
     $('#driverPickUp').removeClass("hide");
     $('#driver').hide();
     $('#driverBack').hide();
+    location.reload();
   });
 
   //btn class update
@@ -58,17 +68,30 @@ $(document).ready(function(){
     let quantity = $row.find("input[name = 'quantityTR']").val(); //Find textbox for Quantity
 
     if ($('#table').valid()) { //check if row meet validation requirments
+      //update admin table rows
+      if (cost != ""){
+        $prevRow.find(".cost").html(cost);
+      }
+      if (quantity != ""){
+        let currentQuantity = parseInt($prevRow.find(".quantity").text());
+        $prevRow.find(".quantity").html(currentQuantity + parseInt(quantity));
+      }
       adminUpdateDatabase(item,quantity,cost);
     }
   });
   //btn class delete
   $('#tableBody').on('click','.delete',function(){
     let $row = $(this).closest('tr');
-    let item = $row.prev().find(".item").text();
+    let $prevRow = $row.prev();
+    let item = $prevRow.find(".item").text();
     const dbItem = firebase.database().ref(item);
 
     if (confirm("Are you sure you want to delete " + item + "?")){
+      //remove item from database
       dbItem.remove();
+      //update admin table rows
+      $prevRow.remove();
+      $row.remove();
     }
   });
 //doc.ready()
