@@ -57,15 +57,8 @@ table {
   display: block;
   align-items: center;
 }
-.not {
-  color: red;
-}
-.success {
-  color: green;
-  font-size: 25px;
-}
 .error {
-  color: #F00;
+  color: #b62826;
   font-size: 15px;
 }
 .hide{
@@ -99,7 +92,6 @@ table {
   background-color: #b62826;
   color: white;
 }
-
 .btn-tall{
   height: 200px;
   margin-top: 20px;

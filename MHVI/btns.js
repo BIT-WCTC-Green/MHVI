@@ -29,7 +29,7 @@ $(document).ready(function(){
     if ($('#driver').valid() && existsInDB(item)) {
       let quantity = $('#driverQuantityUpdate').val();
       updateDatabase(item,(-1 * quantity));
-      $('#driverOutput').html('Successful');
+      location.reload();
     }else{
       $('#driverOutput').html('Please check that the item you entered is in the database');
     }
@@ -40,7 +40,7 @@ $(document).ready(function(){
     if ($('#driver').valid() && existsInDB(item)) {
       let quantity = $('#driverQuantityUpdate').val();
       updateDatabase(item,quantity);
-      $('#driverOutput').html('Successful');
+      location.reload();
     }else{
       $('#driverOutput').html('Please check that the item you entered is in the database');
     }
