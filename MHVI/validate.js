@@ -47,9 +47,6 @@ $(function() {
         driverQuantityUpdate:{
           required: "Please enter the quantity"
         }
-      },
-      submitHandler: function(){
-        alert("pickup")
       }
   });
   $("#adminSelectForm").validate({
