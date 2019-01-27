@@ -86,44 +86,14 @@
          totalQuantity+=child.val().Quantity;
          totalInventoryValue+=(child.val().Cost * child.val().Quantity);
        });
-        $('#total').append('<h3>Inventory Items:</h3>' + totalInventoryItems.toLocaleString('en') +
-                           '<br><h3>Total Cost:</h3>' +'$'+totalCost.toLocaleString('en')+
-                           '<br><h3>Total Quantity:</h3>' + totalQuantity.toLocaleString('en')+
-                           '<br><h3>Total Inventory Value:</h3>' +'$'+ totalInventoryValue.toLocaleString('en'));
+        $('#inventoryTotal').append('<hr><h3>INVENTORY ITEMS:<br>' + totalInventoryItems.toLocaleString('en') + '</h3>');
+
+        $('#reportTableBody tr:last').after('<tr><td><strong>Totals</strong></td>' +
+                           '<td><strong>$'+totalCost.toLocaleString('en')+' :\\</strong></td>'+
+                           '<td><strong>' + totalQuantity.toLocaleString('en') + '</strong></td>'+
+                           '<td><strong>$'+ totalInventoryValue.toLocaleString('en')+'</strong></td></tr>');
+     //dbReportTable
      });
-    // //grab reference to database
-    // const dbDropdown = firebase.database().ref();
-    // //add all itmes from databases
-    // dbDropdown.on('child_added', snap => {
-    //   //driver list
-    //   $('#list').append('<option value = ' + snap.key + '>' + snap.val().Item + '</option>');
-    //   $('#adminList').append('<option value = ' + snap.key + '>' + snap.val().Item + '</option>');
-    // })
-    // // listens for changes to any child in the database
-    // dbDropdown.on('child_changed', snap => {
-    //   // $('#list option[value='+ snap.val().Item+']').text(snap.val().Item);
-    //   $('#adminList option[value='+ snap.key+']').text(snap.val().Item);
-    //   $('#list option[value='+ snap.key +']').text(snap.val().Item);
-    //
-    // })
-    // //listens for any children removed from the database then updates the selectlist
-    // dbDropdown.on('child_removed', snap => {
-    //   $('#list option[value='+ snap.key +']').remove();
-    //   $('#adminList option[value='+snap.key +']').remove();
-    // })
-    //
-    // $('#list').change(function() {
-    //   let listItem = $('#list').find(":selected").text();
-    //   if (listItem != "Select Item"){
-    //     searchDatabase(listItem,$(driverOutput));
-    //   }
-    // });
-    // $('#adminList').change(function() {
-    //   let listItem = $('#adminList').find(":selected").text();
-    //   if (listItem != "Select Item"){
-    //     searchDatabase(listItem,$(output));
-    //   }
-    // });
     //doc.ready()
     });
 //function
