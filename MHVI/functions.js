@@ -60,11 +60,9 @@ function searchDatabase(searchTerm,output){
   const dbRead = firebase.database().ref().child(searchTerm);
   dbRead.on('value', snap => {
     //get timestamp from firebase and convert to javascript Date object
-    // let date = new Date(snap.val().Date);
     output.html("Item: " + snap.val().Item +
         "\nCost: " + snap.val().Cost +
         "\nQuantity: " + snap.val().Quantity);
-        // "\nDate: " + (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getFullYear());
     });
   }
   function driverQuantityUpdate(){

@@ -70,11 +70,12 @@ $(document).ready(function(){
     if ($('#table').valid()) { //check if row meet validation requirments
       //update admin table rows
       if (cost != ""){
-        $prevRow.find(".cost").html(cost);
+        $prevRow.find(".cost").html(cost.toLocaleString('en'));
       }
       if (quantity != ""){
-        let currentQuantity = parseInt($prevRow.find(".quantity").text());
-        $prevRow.find(".quantity").html(currentQuantity + parseInt(quantity));
+        let currentQuantity = parseInt($prevRow.find(".quantity").text().replace(/,/g,""));
+        console.log(currentQuantity);
+        $prevRow.find(".quantity").html((currentQuantity + parseInt(quantity)).toLocaleString('en'));
       }
       adminUpdateDatabase(item,quantity,cost);
     }
