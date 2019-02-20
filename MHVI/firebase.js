@@ -1,13 +1,14 @@
 (function() {
   var config = {
-    apiKey: "AIzaSyDaPeaiTpAzQcJSV46IDaaElp0OeAGp7E8",
-    authDomain: "mhvi-15e2b.firebaseapp.com",
-    databaseURL: "https://mhvi-15e2b.firebaseio.com",
-    projectId: "mhvi-15e2b",
-    storageBucket: "mhvi-15e2b.appspot.com",
-    messagingSenderId: "630227463036"
+    apiKey: "AIzaSyAZ08zz5k4W-uOFUDFbqMTnuIB6CQsf2yE",
+    authDomain: "mhvi-80432.firebaseapp.com",
+    databaseURL: "https://mhvi-80432.firebaseio.com",
+    projectId: "mhvi-80432",
+    storageBucket: "mhvi-80432.appspot.com",
+    messagingSenderId: "252316303560"
   };
   firebase.initializeApp(config);
+
 
   $(document).ready(function(){
     //search database for item
@@ -89,7 +90,7 @@
         $('#inventoryTotal').append('<hr><h3>INVENTORY ITEMS:<br>' + totalInventoryItems.toLocaleString('en') + '</h3>');
 
         $('#reportTableBody tr:last').after('<tr><td><strong>Totals</strong></td>' +
-                           '<td><strong>$'+totalCost.toLocaleString('en')+' :\\</strong></td>'+
+                           '<td><strong>$'+totalCost.toLocaleString('en')+'</strong></td>'+
                            '<td><strong>' + totalQuantity.toLocaleString('en') + '</strong></td>'+
                            '<td><strong>$'+ totalInventoryValue.toLocaleString('en')+'</strong></td></tr>');
      //dbReportTable

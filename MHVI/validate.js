@@ -76,7 +76,7 @@ $(function() {
         min:0
       },
       quantityTR:{
-        digits:true
+        number:true
       }
     }
   });

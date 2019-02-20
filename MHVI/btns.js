@@ -11,7 +11,7 @@ $(document).ready(function(){
     $('#driverDropOffSubmit').show();
     $('#driverPickUpSubmit').hide();
     $('#driverBack').show();
-
+    
   });
   $('#driverPickUp').click(function(){
     $('#driverDropOff').addClass("hide");
